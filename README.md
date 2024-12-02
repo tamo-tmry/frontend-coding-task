@@ -42,8 +42,7 @@ npm run dev
 ```
 
 5. ブラウザでの確認
-http://localhost:3000  
-にアクセスしてください。
+http://localhost:3000 にアクセスしてください。
 
 ### テストの実行
 本PJでは [Vitest](https://vitest.dev/) を利用しています。  
