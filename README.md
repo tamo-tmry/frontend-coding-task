@@ -1,45 +1,53 @@
-# Vitest
+# ボタンコンポーネントの実装
+## 要件
+- ボタンの状態は次の4種類がある
+  - 非活性（disabled）
+  - ローディング中（loading）
+  - ホバー時（hover）
+  - フォーカス時（focus）
+- ボタンのラベルは外部から指定可能
+- ボタンのクリック時に発火する関数（onClick）を外部から指定可能
+- ボタンの色や形状は固定であり、外部からカスタマイズできない
+- ボタンの高さ・横幅は親コンポーネントによって制御される
+- ボタンのtypeをsubmitとして指定可能
+- ボタンにURLを渡した場合、リンクとして振る舞う
+  - リンク先（href）を指定可能
+  - 開き方（target）を指定可能
 
-This example shows how to use [Vitest](https://github.com/vitest-dev/vitest) with Next.js.
+## 環境構築
+### 前提
+- Node.js v22.0.0 を使用します。
+- Volta を利用してNode.jsのバージョンを管理します。
+  - Voltaのインストール方法は [公式サイト](https://volta.sh/) を参照してください
 
-This includes Next.js' built-in support for Global CSS, CSS Modules and TypeScript. This example also shows how to use Vitest with the App Router and React Server Components.
-
-> **Note:** Since tests can be co-located alongside other files inside the App Router, we have placed those tests in `app/` to demonstrate this behavior (which is different than `pages/`). You can still place all tests in `__tests__` if you prefer.
-
-## Deploy your own
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-vitest&project-name=with-vitest&repository-name=with-vitest)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
-
+### 手順
+1. リポジトリのクローン
 ```bash
-npx create-next-app --example with-vitest with-vitest-app
+git clone https://github.com/tamo-tmry/frontend-coding-task.git
 ```
 
+2. Node.jsのバージョン適用
 ```bash
-yarn create next-app --example with-vitest with-vitest-app
+volta install node@22.0.0
 ```
 
+3. 依存関係のインストール
 ```bash
-pnpm create next-app --example with-vitest with-vitest-app
+npm ci
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-## Running Tests
-
+4. 開発サーバーの起動
 ```bash
-npm test
+npm run dev
 ```
 
-```bash
-yarn test
-```
+5. ブラウザでの確認
+http://localhost:3000  
+にアクセスしてください。
+
+### テストの実行
+本PJでは [Vitest](https://vitest.dev/) を利用しています。  
 
 ```bash
-pnpm test
+npm run test
 ```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
