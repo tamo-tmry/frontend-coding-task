@@ -1,24 +1,31 @@
 {
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "test": "vitest"
-  },
-  "dependencies": {
-    "next": "latest",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "server-only": "^0.0.1"
-  },
-  "devDependencies": {
-    "@testing-library/react": "14.1.2",
-    "@types/node": "20.10.4",
-    "@types/react": "18.2.45",
-    "@vitejs/plugin-react": "^4.2.1",
-    "jsdom": "^23.0.1",
-    "typescript": "5.3.3",
-    "vitest": "1.0.4"
-  }
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "test": "vitest",
+        "lint": "next lint",
+        "prepare": "husky"
+    },
+    "dependencies": {
+        "next": "latest",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "server-only": "^0.0.1"
+    },
+    "devDependencies": {
+        "@testing-library/react": "14.1.2",
+        "@types/node": "20.10.4",
+        "@types/react": "18.2.45",
+        "@vitejs/plugin-react": "^4.2.1",
+        "eslint-config-next": "^15.0.3",
+        "eslint-config-prettier": "^9.1.0",
+        "husky": "^9.1.7",
+        "jsdom": "^23.0.1",
+        "lint-staged": "^15.2.10",
+        "prettier": "^3.4.1",
+        "typescript": "5.3.3",
+        "vitest": "1.0.4"
+    }
 }
