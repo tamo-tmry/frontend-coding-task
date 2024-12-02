@@ -9,6 +9,10 @@
         "prepare": "husky"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.7.1",
+        "@fortawesome/free-regular-svg-icons": "^6.7.1",
+        "@fortawesome/free-solid-svg-icons": "^6.7.1",
+        "@fortawesome/react-fontawesome": "^0.2.2",
         "next": "latest",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
@@ -25,6 +29,7 @@
         "jsdom": "^23.0.1",
         "lint-staged": "^15.2.10",
         "prettier": "^3.4.1",
+        "sass": "^1.81.0",
         "typescript": "5.3.3",
         "vitest": "1.0.4"
     }

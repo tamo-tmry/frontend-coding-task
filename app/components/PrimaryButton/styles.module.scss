@@ -1,0 +1,20 @@
+.primaryButton {
+    background-color: #1a1a1a;
+    border: 1px solid #1a1a1a;
+    color: #fff;
+
+    /* PC用のホバーとフォーカスのスタイル */
+    @media (hover: hover) {
+        &:hover,
+        &:focus {
+            background-color: #fff;
+            border: 1px solid #1a1a1a;
+            color: #1a1a1a;
+        }
+    }
+}
+
+.loadingIcon {
+    border-color: #fff;
+    border-top: 2px solid #1a1a1a;
+}
