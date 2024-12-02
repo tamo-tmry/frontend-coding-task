@@ -1,0 +1,15 @@
+.secondaryButton {
+    background-color: #fff;
+    border: 1px solid #1a1a1a;
+    color: #1a1a1a;
+
+    /* PC用のホバーとフォーカスのスタイル */
+    @media (hover: hover) {
+        &:hover,
+        &:focus {
+            background-color: #1a1a1a;
+            border: 1px solid #1a1a1a;
+            color: #fff;
+        }
+    }
+}
