@@ -1,6 +1,8 @@
 import { render, screen, fireEvent, cleanup } from "@testing-library/react"
 import { afterEach, describe, expect, it, test, vi } from "vitest"
 import { PrimaryButton } from "./component"
+import { faPen } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 afterEach(cleanup)
 
@@ -8,6 +10,7 @@ describe("PrimaryButton", () => {
     test("hrefとtargetが指定されている場合、aタグのリンクが表示されること", () => {
         render(
             <PrimaryButton href="https://example.com" target="_blank">
+                <FontAwesomeIcon icon={faPen} />
                 編集
             </PrimaryButton>,
         )
@@ -19,7 +22,12 @@ describe("PrimaryButton", () => {
     })
 
     test("hrefが指定されていない場合、buttonタグが表示されること", () => {
-        render(<PrimaryButton onClick={() => {}}>編集</PrimaryButton>)
+        render(
+            <PrimaryButton onClick={() => {}}>
+                <FontAwesomeIcon icon={faPen} />
+                編集
+            </PrimaryButton>,
+        )
 
         const button = screen.getByRole("button", { name: "編集" })
         expect(button).toBeDefined()
@@ -29,6 +37,7 @@ describe("PrimaryButton", () => {
     test("isDisabledがtrueの場合、ボタンが非活性で表示されること", () => {
         render(
             <PrimaryButton onClick={() => {}} isDisabled={true}>
+                <FontAwesomeIcon icon={faPen} />
                 編集
             </PrimaryButton>,
         )
@@ -41,6 +50,7 @@ describe("PrimaryButton", () => {
     test("isLoadingがtrueの場合、ローディングアイコンが表示され、子要素が表示されないこと", () => {
         render(
             <PrimaryButton isLoading={true} onClick={() => {}}>
+                <FontAwesomeIcon icon={faPen} />
                 編集
             </PrimaryButton>,
         )
@@ -53,7 +63,12 @@ describe("PrimaryButton", () => {
     describe("ボタン押下時", () => {
         test("onClickが呼び出されること", () => {
             const onClickMock = vi.fn()
-            render(<PrimaryButton onClick={onClickMock}>編集</PrimaryButton>)
+            render(
+                <PrimaryButton onClick={onClickMock}>
+                    <FontAwesomeIcon icon={faPen} />
+                    編集
+                </PrimaryButton>,
+            )
 
             const button = screen.getByRole("button", { name: "編集" })
             fireEvent.click(button)
@@ -65,6 +80,7 @@ describe("PrimaryButton", () => {
             const onClickMock = vi.fn()
             render(
                 <PrimaryButton onClick={onClickMock} isDisabled={true}>
+                    <FontAwesomeIcon icon={faPen} />
                     編集
                 </PrimaryButton>,
             )
@@ -78,6 +94,7 @@ describe("PrimaryButton", () => {
             const onClickMock = vi.fn()
             render(
                 <PrimaryButton onClick={onClickMock} isLoading={true}>
+                    <FontAwesomeIcon icon={faPen} />
                     編集
                 </PrimaryButton>,
             )

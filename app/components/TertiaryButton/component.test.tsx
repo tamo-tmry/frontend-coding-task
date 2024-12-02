@@ -1,6 +1,8 @@
 import { render, screen, fireEvent, cleanup } from "@testing-library/react"
 import { afterEach, describe, expect, it, test, vi } from "vitest"
 import { TertiaryButton } from "./component"
+import { faPen } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 afterEach(cleanup)
 
@@ -8,6 +10,7 @@ describe("TertiaryButton", () => {
     test("hrefとtargetが指定されている場合、aタグのリンクが表示されること", () => {
         render(
             <TertiaryButton href="https://example.com" target="_blank">
+                <FontAwesomeIcon icon={faPen} />
                 編集
             </TertiaryButton>,
         )
@@ -19,7 +22,12 @@ describe("TertiaryButton", () => {
     })
 
     test("hrefが指定されていない場合、buttonタグが表示されること", () => {
-        render(<TertiaryButton onClick={() => {}}>編集</TertiaryButton>)
+        render(
+            <TertiaryButton onClick={() => {}}>
+                <FontAwesomeIcon icon={faPen} />
+                編集
+            </TertiaryButton>,
+        )
 
         const button = screen.getByRole("button", { name: "編集" })
         expect(button).toBeDefined()
@@ -29,6 +37,7 @@ describe("TertiaryButton", () => {
     test("isDisabledがtrueの場合、ボタンが非活性で表示されること", () => {
         render(
             <TertiaryButton onClick={() => {}} isDisabled={true}>
+                <FontAwesomeIcon icon={faPen} />
                 編集
             </TertiaryButton>,
         )
@@ -41,6 +50,7 @@ describe("TertiaryButton", () => {
     test("isLoadingがtrueの場合、ローディングアイコンが表示され、子要素が表示されないこと", () => {
         render(
             <TertiaryButton isLoading={true} onClick={() => {}}>
+                <FontAwesomeIcon icon={faPen} />
                 編集
             </TertiaryButton>,
         )
@@ -53,7 +63,12 @@ describe("TertiaryButton", () => {
     describe("ボタン押下時", () => {
         test("onClickが呼び出されること", () => {
             const onClickMock = vi.fn()
-            render(<TertiaryButton onClick={onClickMock}>編集</TertiaryButton>)
+            render(
+                <TertiaryButton onClick={onClickMock}>
+                    <FontAwesomeIcon icon={faPen} />
+                    編集
+                </TertiaryButton>,
+            )
 
             const button = screen.getByRole("button", { name: "編集" })
             fireEvent.click(button)
@@ -65,6 +80,7 @@ describe("TertiaryButton", () => {
             const onClickMock = vi.fn()
             render(
                 <TertiaryButton onClick={onClickMock} isDisabled={true}>
+                    <FontAwesomeIcon icon={faPen} />
                     編集
                 </TertiaryButton>,
             )
@@ -78,6 +94,7 @@ describe("TertiaryButton", () => {
             const onClickMock = vi.fn()
             render(
                 <TertiaryButton onClick={onClickMock} isLoading={true}>
+                    <FontAwesomeIcon icon={faPen} />
                     編集
                 </TertiaryButton>,
             )

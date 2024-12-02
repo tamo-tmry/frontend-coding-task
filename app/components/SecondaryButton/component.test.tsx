@@ -1,6 +1,8 @@
 import { render, screen, fireEvent, cleanup } from "@testing-library/react"
 import { afterEach, describe, expect, it, test, vi } from "vitest"
 import { SecondaryButton } from "./component"
+import { faPen } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 afterEach(cleanup)
 
@@ -8,6 +10,7 @@ describe("SecondaryButton", () => {
     test("hrefとtargetが指定されている場合、aタグのリンクが表示されること", () => {
         render(
             <SecondaryButton href="https://example.com" target="_blank">
+                <FontAwesomeIcon icon={faPen} />
                 編集
             </SecondaryButton>,
         )
@@ -19,7 +22,12 @@ describe("SecondaryButton", () => {
     })
 
     test("hrefが指定されていない場合、buttonタグが表示されること", () => {
-        render(<SecondaryButton onClick={() => {}}>編集</SecondaryButton>)
+        render(
+            <SecondaryButton onClick={() => {}}>
+                <FontAwesomeIcon icon={faPen} />
+                編集
+            </SecondaryButton>,
+        )
 
         const button = screen.getByRole("button", { name: "編集" })
         expect(button).toBeDefined()
@@ -29,6 +37,7 @@ describe("SecondaryButton", () => {
     test("isDisabledがtrueの場合、ボタンが非活性で表示されること", () => {
         render(
             <SecondaryButton onClick={() => {}} isDisabled={true}>
+                <FontAwesomeIcon icon={faPen} />
                 編集
             </SecondaryButton>,
         )
@@ -41,6 +50,7 @@ describe("SecondaryButton", () => {
     test("isLoadingがtrueの場合、ローディングアイコンが表示され、子要素が表示されないこと", () => {
         render(
             <SecondaryButton isLoading={true} onClick={() => {}}>
+                <FontAwesomeIcon icon={faPen} />
                 編集
             </SecondaryButton>,
         )
@@ -54,7 +64,10 @@ describe("SecondaryButton", () => {
         test("onClickが呼び出されること", () => {
             const onClickMock = vi.fn()
             render(
-                <SecondaryButton onClick={onClickMock}>編集</SecondaryButton>,
+                <SecondaryButton onClick={onClickMock}>
+                    <FontAwesomeIcon icon={faPen} />
+                    編集
+                </SecondaryButton>,
             )
 
             const button = screen.getByRole("button", { name: "編集" })
@@ -67,6 +80,7 @@ describe("SecondaryButton", () => {
             const onClickMock = vi.fn()
             render(
                 <SecondaryButton onClick={onClickMock} isDisabled={true}>
+                    <FontAwesomeIcon icon={faPen} />
                     編集
                 </SecondaryButton>,
             )
@@ -80,6 +94,7 @@ describe("SecondaryButton", () => {
             const onClickMock = vi.fn()
             render(
                 <SecondaryButton onClick={onClickMock} isLoading={true}>
+                    <FontAwesomeIcon icon={faPen} />
                     編集
                 </SecondaryButton>,
             )

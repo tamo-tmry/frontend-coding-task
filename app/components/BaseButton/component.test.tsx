@@ -1,6 +1,8 @@
 import { afterEach, describe, expect, test, vi } from "vitest"
 import { render, screen, fireEvent, cleanup } from "@testing-library/react"
 import { BaseButton } from "./component"
+import { faPen } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 afterEach(cleanup)
 
@@ -8,6 +10,7 @@ describe("BaseButton", () => {
     test("hrefとtargetが指定されている場合、aタグのリンクが表示されること", () => {
         render(
             <BaseButton href="https://example.com" target="_blank">
+                <FontAwesomeIcon icon={faPen} />
                 編集
             </BaseButton>,
         )
@@ -19,7 +22,12 @@ describe("BaseButton", () => {
     })
 
     test("hrefとtargetが指定されていない場合、buttonタグが表示されること", () => {
-        render(<BaseButton>編集</BaseButton>)
+        render(
+            <BaseButton>
+                <FontAwesomeIcon icon={faPen} />
+                編集
+            </BaseButton>,
+        )
 
         const button = screen.getByRole("button", { name: "編集" })
         expect(button).toBeDefined()
@@ -27,7 +35,12 @@ describe("BaseButton", () => {
     })
 
     test("isDisabledがtrueの場合、ボタンが非活性で表示されること", () => {
-        render(<BaseButton isDisabled={true}>編集</BaseButton>)
+        render(
+            <BaseButton isDisabled={true}>
+                <FontAwesomeIcon icon={faPen} />
+                編集
+            </BaseButton>,
+        )
 
         const button = screen.getByRole("button", { name: "編集" })
         expect(button.getAttribute("disabled")).toBe("")
@@ -36,6 +49,7 @@ describe("BaseButton", () => {
     test("isLoadingがtrueの場合、ローディングアイコンが表示され、子要素が表示されないこと", () => {
         render(
             <BaseButton isLoading={true} type="button">
+                <FontAwesomeIcon icon={faPen} />
                 編集
             </BaseButton>,
         )
@@ -49,7 +63,12 @@ describe("BaseButton", () => {
     describe("ボタン押下時", () => {
         test("onClickが呼び出されること", () => {
             const onClickMock = vi.fn()
-            render(<BaseButton onClick={onClickMock}>編集</BaseButton>)
+            render(
+                <BaseButton onClick={onClickMock}>
+                    <FontAwesomeIcon icon={faPen} />
+                    編集
+                </BaseButton>,
+            )
 
             const button = screen.getByRole("button", { name: "編集" })
             fireEvent.click(button)
@@ -62,6 +81,7 @@ describe("BaseButton", () => {
 
             render(
                 <BaseButton isDisabled={true} onClick={onClickMock}>
+                    <FontAwesomeIcon icon={faPen} />
                     編集
                 </BaseButton>,
             )
@@ -75,6 +95,7 @@ describe("BaseButton", () => {
 
             render(
                 <BaseButton isLoading={true} onClick={onClickMock}>
+                    <FontAwesomeIcon icon={faPen} />
                     編集
                 </BaseButton>,
             )
